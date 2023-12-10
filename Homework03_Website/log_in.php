@@ -18,8 +18,8 @@
         }
 
         //This is the page to verify the username and password.
-        $username = $_GET['txt_username'];
-        $password = $_GET['txt_password'];
+        $username = $_POST['txt_username'];
+        $password = $_POST['txt_password'];
 
         //Now that we have the username and password, we have to verify that they belong to someone
         $sql = "SELECT * FROM users WHERE username = '" . $username . "' AND password = '" . $password .  "';";
@@ -28,8 +28,7 @@
 
         if ($result->num_rows > 0)
         {
-            $row = $result->fetch_assoc();
-            echo "<script>sessionStorage.setItem('usernameStored','" . $row['username'] . "';</script>";
+            echo "<script>sessionStorage.setItem('usernameStored','" . $username . "');</script>";
             echo "<script>location.href='clicker.html';</script>";
             
         }

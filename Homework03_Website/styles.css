@@ -7,14 +7,15 @@
 
 .LoginOrientation
 {
-    margin: 0;
-    position: absolute;
-    top: 10%;
-    left: 45%;
     text-align: center;
 }
 
 .LoginButtons
 {
     width: 100px;
+}
+
+#table_highscores table,th,td
+{
+    border: 1px solid black;;
 }
