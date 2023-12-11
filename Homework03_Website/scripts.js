@@ -7,6 +7,7 @@
 const USERNAME_STORAGE = "usernameStored";
 
 var gameRunning = false;
+var gameStarting = false;
 var curScore;
 var clicksPerSec;
 
@@ -61,27 +62,35 @@ function highscoresStart()
 
 function runGame()
 {
-    tickdownTimer("3");
-    setTimeout(tickdownTimer, 1000, "2");
-    setTimeout(tickdownTimer, 2000, "1");
-    setTimeout(tickdownTimer, 3000, "GO! 5");
-    setTimeout(startGame, 3000);
-    setTimeout(tickdownTimer, 4000, "GO! 4");
-    setTimeout(tickdownTimer, 5000, "GO! 3");
-    setTimeout(tickdownTimer, 6000, "GO! 2");
-    setTimeout(tickdownTimer, 7000, "GO! 1");
-    setTimeout(endGame, 8000);
+    if (!gameStarting)
+    {
+        gameStarting = true;
+        var score = document.getElementById("txt_score");
+        score.innerHTML = 0;
+        curScore = 0;
+        tickdownTimer("3");
+        setTimeout(tickdownTimer, 1000, "2");
+        setTimeout(tickdownTimer, 2000, "1");
+        setTimeout(tickdownTimer, 3000, "GO! 5");
+        setTimeout(startGame, 3000);
+        setTimeout(tickdownTimer, 4000, "GO! 4");
+        setTimeout(tickdownTimer, 5000, "GO! 3");
+        setTimeout(tickdownTimer, 6000, "GO! 2");
+        setTimeout(tickdownTimer, 7000, "GO! 1");
+        setTimeout(endGame, 8000);
+    }
+
 
     function startGame()
     {
         gameRunning = true;
-        curScore = 0;
     }
 
     function endGame()
     {
         tickdownTimer("Click To Play Again!");
         gameRunning = false;
+        gameStarting = false;
         clicksPerSec = curScore / 5;
         addScoreToDatabase();
     }

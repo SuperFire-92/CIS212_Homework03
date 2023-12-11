@@ -14,7 +14,7 @@
     <div class="row">
         <h1 class="Header">CLICK COUNTER</h1>
         <div class="col-sm-2" style="text-align: center;">
-            test
+            <button onclick="location.href = 'clicker.html';">BACK</button>
         </div>
         <div class="col-sm" style="text-align: center;">
             <table style="text-align: center; width: 100%;" id="table_highscores">
@@ -22,7 +22,11 @@
             </table>
         </div>
         <div class="col-sm-2" style="text-align: center;">
-            <button onclick="location.href = 'clicker.html';">BACK</button>
+            <button style="width: 50%;" onclick="location.href = 'highscores.php?type=default'">Default Sort</button>
+            <br><br>
+            <button style="width: 50%;" onclick="location.href = 'highscores.php?type=user&user=' + sessionStorage.getItem('usernameStored')">User Sort</button>
+            <br><br>
+            <button style="width: 50%;" onclick="location.href = 'highscores.php?type=prime'">Prime Scores Sort</button>
         </div>
     </div>
 </body>
